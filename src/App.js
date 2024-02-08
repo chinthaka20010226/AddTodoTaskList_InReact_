@@ -12,6 +12,17 @@ function App() {
   const[itemTitle,SetItemTitle] = useState("");
   const[itemDescription,setItemDescription] = useState("");
 
+  const handelAddItem = () => {
+    // set title, description
+    let item = {
+      title: itemTitle,
+      description: itemDescription
+    };
+
+    // cody previous Items Array
+    let updatedItemArr = [...allItems];
+  }
+
   return (
     <section className="h-100 w-100">
       <div className="container h-100 w-100 py-3">
@@ -30,7 +41,7 @@ function App() {
                     <input type="text" value={itemDescription} onChange={(e) => setItemDescription(e.target.value)} id="description" placeholder="What is new description ???"></input>
                   </div>
                   <div className="col-2 item pt-4 add">
-                    <button type="button" className="add-btn p-1 px-3">Add</button>
+                    <button type="button" onClick={handelAddItem} className="add-btn p-1 px-3">Add</button>
                   </div>
                 </div>
               </div>
