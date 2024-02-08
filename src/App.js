@@ -33,13 +33,13 @@ function App() {
                 <div className="card-body d-flex flex-row">
                   <div className="bottom-btn d-flex ">
                     <button 
-                    className={`${isCompleted === false && `active`} secondary-btn`}
-                    onClick={() => setIsCompleted(false)} 
-                    type="button">ToDo</button>
+                      className={`${isCompleted === false && `active`} secondary-btn`}
+                      onClick={() => setIsCompleted(false)} 
+                      type="button">ToDo</button>
                     <button 
-                    className={`secondary-btn ${isCompleted === true && `active`}`} 
-                    onClick={() => setIsCompleted(true)}
-                    type="button">Completed</button>
+                      className={`secondary-btn ${isCompleted === true && `active`}`} 
+                      onClick={() => setIsCompleted(true)}
+                      type="button">Completed</button>
                   </div>
                   <div className="add-section">
 
