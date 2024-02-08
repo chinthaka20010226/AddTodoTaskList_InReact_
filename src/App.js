@@ -21,6 +21,16 @@ function App() {
 
     // cody previous Items Array
     let updatedItemArr = [...allItems];
+
+    updatedItemArr.push(item);
+
+    setAllItems(updatedItemArr);
+
+    // Strore in Local Storage as Object,
+    // localStorage.setItem('todoList',updatedItemArr);
+
+    // Store in Local Storage as Array,
+    localStorage.setItem('todoList',JSON.stringify(updatedItemArr));
   }
 
   return (
@@ -52,7 +62,7 @@ function App() {
                   <div className="bottom-btn d-flex">
                     <button 
                       className={`${isCompleted === false && `active`} secondary-btn`}
-                      onClick={() => setIsCompleted(false)} 
+                      onClick={() => setIsCompleted(false)}
                       type="button">ToDo</button>
                     <button 
                       className={`secondary-btn ${isCompleted === true && `active`}`} 
@@ -60,16 +70,22 @@ function App() {
                       type="button">Completed</button>
                   </div>
                   <div className="add-section d-flex flex-column">
-                    <div className='add-item d-flex flex-row'>
-                      <div className='item-text d-flex flex-column h-100'>
-                        <h2>Task 1</h2>
-                        <p>Descriprtion</p> 
-                      </div>                                                                                     
-                      <div className='item-icon d-flex flex-row h-100'>
-                        <AiOutlineDelete className='delete'/>
-                        <FaCheck className='check' />
-                      </div>                                                                                     
-                    </div>
+                    {
+                      allItems.map((item,index) => {
+                        return(
+                          <div className='add-item d-flex flex-row mb-2' key={index}>
+                            <div className='item-text d-flex flex-column h-100'>
+                              <h2>{item.title}</h2>
+                              <p>{item.description}</p> 
+                            </div>                                                                                     
+                            <div className='item-icon d-flex flex-row h-100'>
+                              <AiOutlineDelete className='delete'/>
+                              <FaCheck className='check' />
+                            </div>                                                                                     
+                          </div>
+                        );
+                      })
+                    }
                   </div>
                 </div>
               </div>
