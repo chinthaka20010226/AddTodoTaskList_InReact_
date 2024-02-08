@@ -3,6 +3,8 @@
   --c-bodyBackgroundColor: #1f1e1e;
   --c-containerBackgroundColor: #353434;
   --c-inputBackgroundColor: #434343;
+  --c-btnColor: rgb(0,230,122);
+  --c-btnBackgroundHover: rgb(0, 192, 102);
   --c-frontColor: #fff;
 }
 
@@ -32,7 +34,7 @@ body {
 .item input {
   border: none;
   padding: 3px 5px;
-  /* outline: none; */
+  outline: none;
   background-color: var(--c-inputBackgroundColor);
   /*font-size: 20px;
   */color: #fff;
@@ -43,10 +45,40 @@ body {
   -o-border-radius: 5px;
 }
 
+.add-btn {
+  background: var(--c-btnColor);
+  color: var(--c-frontColor);
+  border: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: var(--c-inputBackgroundColor);
+  color: var(--c-frontColor);
+  padding: 5px;
+  border: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  cursor: pointer;
+  width: fit-content;
+}
+
 
 
 /* --- Animation Part --- */
 .item input:focus {
   outline: none;
-  border: 1px solid rgb(0, 230, 122);
+  outline: 1px solid var(--c-btnColor);
+}
+
+.add-btn:hover {
+  background: var(--c-btnBackgroundHover);
 }

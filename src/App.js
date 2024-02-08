@@ -19,7 +19,7 @@ function App() {
                     <label className='mb-1 fw-bold' for="description">Description</label>
                     <input type="text" id="description" placeholder="What is new description ???"></input>
                   </div>
-                  <div className="col-2 item pt-3">
+                  <div className="col-2 item pt-4">
                     <button type="button" className="add-btn p-1 px-3">Add</button>
                   </div>
                 </div>
@@ -29,8 +29,8 @@ function App() {
               <div className="todo-container col card">
                 <div className="card-body d-flex flex-row">
                   <div className="bottom-btn d-flex ">
-                    <button type="button">ToDo</button>
-                    <button type="button">Completed</button>
+                    <button className='secondary-btn' type="button">ToDo</button>
+                    <button className='secondary-btn' type="button">Completed</button>
                   </div>
                   <div className="add-section">
 
