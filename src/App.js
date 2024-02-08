@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 import { AiOutlineDelete } from "react-icons/ai";
@@ -32,6 +32,14 @@ function App() {
     // Store in Local Storage as Array,
     localStorage.setItem('todoList',JSON.stringify(updatedItemArr));
   }
+
+  useEffect(() => {
+    let saveTodo = JSON.parse(localStorage.getItem('todeList'));
+
+    if(saveTodo){
+      setAllItems(saveTodo);
+    }
+  },[]);
 
   return (
     <section className="h-100 w-100">
