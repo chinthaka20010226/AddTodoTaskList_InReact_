@@ -1,7 +1,10 @@
 // import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const[isCompleted,setIsCompleted] = useState(false);
+
   return (
     <section className="h-100 w-100">
       <div className="container h-100 w-100 py-3">
@@ -29,8 +32,14 @@ function App() {
               <div className="todo-container col card">
                 <div className="card-body d-flex flex-row">
                   <div className="bottom-btn d-flex ">
-                    <button className='secondary-btn' type="button">ToDo</button>
-                    <button className='secondary-btn' type="button">Completed</button>
+                    <button 
+                    className={`${isCompleted === false && `active`} secondary-btn`}
+                    onClick={() => setIsCompleted(false)} 
+                    type="button">ToDo</button>
+                    <button 
+                    className={`secondary-btn ${isCompleted === true && `active`}`} 
+                    onClick={() => setIsCompleted(true)}
+                    type="button">Completed</button>
                   </div>
                   <div className="add-section">
 
