@@ -32,7 +32,7 @@ body {
 .item input {
   border: none;
   padding: 3px 5px;
-  outline: none;
+  /* outline: none; */
   background-color: var(--c-inputBackgroundColor);
   /*font-size: 20px;
   */color: #fff;
@@ -41,4 +41,12 @@ body {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+}
+
+
+
+/* --- Animation Part --- */
+.item input:focus {
+  outline: none;
+  border: 1px solid rgb(0, 230, 122);
 }
