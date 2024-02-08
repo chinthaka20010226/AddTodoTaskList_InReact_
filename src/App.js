@@ -8,6 +8,10 @@ import { FaCheck } from "react-icons/fa6";
 function App() {
   const[isCompleted,setIsCompleted] = useState(false);
 
+  const[allItems,setAllItems] = useState([]);
+  const[itemTitle,SetItemTitle] = useState("");
+  const[itemDescription,setItemDescription] = useState("");
+
   return (
     <section className="h-100 w-100">
       <div className="container h-100 w-100 py-3">
