@@ -12,6 +12,18 @@ function App() {
   const[itemTitle,SetItemTitle] = useState("");
   const[itemDescription,setItemDescription] = useState("");
 
+  const handelDeleteTodo = (index) => {
+    let saveTodo = [...allItems];
+    if(saveTodo){
+      saveTodo.slice(index);
+    }
+
+    // save in Local Storeage
+    localStorage.setItem('todoList',JSON.stringify(saveTodo));
+
+    setAllItems(saveTodo);
+  }
+
   const handelAddItem = () => {
     // set title, description
     let item = {
@@ -33,6 +45,7 @@ function App() {
     localStorage.setItem('todoList',JSON.stringify(updatedItemArr));
   }
 
+
   useEffect(() => {
     let saveTodo = JSON.parse(localStorage.getItem('todeList'));
 
@@ -40,6 +53,7 @@ function App() {
       setAllItems(saveTodo);
     }
   },[]);
+
 
   return (
     <section className="h-100 w-100">
@@ -87,7 +101,7 @@ function App() {
                               <p>{item.description}</p> 
                             </div>                                                                                     
                             <div className='item-icon d-flex flex-row h-100'>
-                              <AiOutlineDelete className='delete'/>
+                              <AiOutlineDelete className='delete' onClick={() => handelDeleteTodo(index)}/>
                               <FaCheck className='check' />
                             </div>                                                                                     
                           </div>
