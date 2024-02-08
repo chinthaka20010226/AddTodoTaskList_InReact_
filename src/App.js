@@ -12,11 +12,11 @@ function App() {
               <div className="todo-container col card">
                 <div className="card-body d-flex flex-row justify-content-between align-items-center">
                   <div className="col-4 item d-flex flex-column">
-                    <label for="title">Title</label>
+                    <label className='mb-1 fw-bold' for="title">Title</label>
                     <input type="text" id="title" placeholder="What is new title ???"></input>
                   </div>
                   <div className="col-4 item d-flex flex-column">
-                    <label for="description">Description</label>
+                    <label className='mb-1 fw-bold' for="description">Description</label>
                     <input type="text" id="description" placeholder="What is new description ???"></input>
                   </div>
                   <div className="col-2 item pt-3">
