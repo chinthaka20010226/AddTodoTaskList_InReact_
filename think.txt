@@ -1,0 +1,16 @@
+###########################
+
+className={`secondary-btn ${isCompleted === false && `active`}`}
+
+
+className=`{secondary-btn ${isCompleted === false && `active`}}`: 
+This sets the base class of the element to secondary-btn. It seems like secondary-btn is a predefined class.
+
+${isCompleted === false && active}: 
+This part is a conditional expression. If isCompleted is equal to false, it adds the class active to the element.
+
+So, if isCompleted is false, the element will have both secondary-btn and active classes. If isCompleted is not false, the element will only have the secondary-btn class.
+
+###########################
+
+className={action === 'Login' ? 'submit-gray' : 'submit'}

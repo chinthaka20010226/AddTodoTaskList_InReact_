@@ -93,7 +93,9 @@ body {
   box-shadow: 1px 2px 2px 1px rgb(43, 42, 42);
 }
 
-.item-text {}
+.item-text h2{
+  color: var(--c-btnColor);
+}
 
 .item-icon {
   align-items: center;
