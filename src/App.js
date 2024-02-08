@@ -23,11 +23,11 @@ function App() {
                 <div className="card-body d-flex flex-row justify-content-between align-items-center">
                   <div className="col-4 item d-flex flex-column">
                     <label className='mb-1 fw-bold' for="title">Title</label>
-                    <input type="text" id="title" placeholder="What is new title ???"></input>
+                    <input type="text" value={itemTitle} onChange={(e) => SetItemTitle(e.target.value)} id="title" placeholder="What is new title ???"></input>
                   </div>
                   <div className="col-4 item d-flex flex-column">
                     <label className='mb-1 fw-bold' for="description">Description</label>
-                    <input type="text" id="description" placeholder="What is new description ???"></input>
+                    <input type="text" value={itemDescription} onChange={(e) => setItemDescription(e.target.value)} id="description" placeholder="What is new description ???"></input>
                   </div>
                   <div className="col-2 item pt-4 add">
                     <button type="button" className="add-btn p-1 px-3">Add</button>
