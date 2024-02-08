@@ -45,6 +45,10 @@ body {
   -o-border-radius: 5px;
 }
 
+.add {
+  padding-left: 50px;
+}
+
 .add-btn {
   background: var(--c-btnColor);
   color: var(--c-frontColor);
@@ -73,6 +77,43 @@ body {
 
 
 
+/*  --- Add Section --- */
+.add-section {
+  /* background-color: red; */
+  margin: 10px 0px;
+  padding: 10px 0px;
+}
+
+.add-item {
+  padding-top: 5px;
+  padding-left: 30px;
+  background: var(--c-inputBackgroundColor);
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 2px 2px 1px rgb(43, 42, 42);
+}
+
+.item-text {}
+
+.item-icon {
+  align-items: center;
+  margin-right: 30px;
+}
+
+.delete {
+  color: red;
+  font-size: 30px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.check {
+  color: var(--c-btnColor);
+  cursor: pointer;
+  font-size: 30px;
+}
+
+
 /* --- Animation Part --- */
 .item input:focus {
   outline: none;
@@ -83,8 +124,13 @@ body {
   background: var(--c-btnBackgroundHover);
 }
 
+.check:hover {
+  color: var(--c-btnBackgroundHover);
+}
 
-
+.delete:hover {
+  color: rgb(218, 0, 0);
+}
 
 
 

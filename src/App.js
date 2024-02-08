@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import './App.css';
 
+import { AiOutlineDelete } from "react-icons/ai";
+import { FaCheck } from "react-icons/fa6";
+
 function App() {
   const[isCompleted,setIsCompleted] = useState(false);
 
@@ -22,7 +25,7 @@ function App() {
                     <label className='mb-1 fw-bold' for="description">Description</label>
                     <input type="text" id="description" placeholder="What is new description ???"></input>
                   </div>
-                  <div className="col-2 item pt-4">
+                  <div className="col-2 item pt-4 add">
                     <button type="button" className="add-btn p-1 px-3">Add</button>
                   </div>
                 </div>
@@ -30,8 +33,8 @@ function App() {
             </div>
             <div className="row">
               <div className="todo-container col card">
-                <div className="card-body d-flex flex-row">
-                  <div className="bottom-btn d-flex ">
+                <div className="card-body d-flex flex-column">
+                  <div className="bottom-btn d-flex">
                     <button 
                       className={`${isCompleted === false && `active`} secondary-btn`}
                       onClick={() => setIsCompleted(false)} 
@@ -41,8 +44,17 @@ function App() {
                       onClick={() => setIsCompleted(true)}
                       type="button">Completed</button>
                   </div>
-                  <div className="add-section">
-
+                  <div className="add-section d-flex flex-column">
+                    <div className='add-item d-flex flex-row'>
+                      <div className='item-text d-flex flex-column h-100'>
+                        <h2>Task 1</h2>
+                        <p>Descriprtion</p> 
+                      </div>                                                                                     
+                      <div className='item-icon d-flex flex-row h-100'>
+                        <AiOutlineDelete className='delete'/>
+                        <FaCheck className='check' />
+                      </div>                                                                                     
+                    </div>
                   </div>
                 </div>
               </div>
