@@ -9,7 +9,7 @@ function App() {
   const[isCompleted,setIsCompleted] = useState(false);
 
   const[allItems,setAllItems] = useState([]);
-  const[itemTitle,SetItemTitle] = useState("");
+  const[itemTitle,setItemTitle] = useState("");
   const[itemDescription,setItemDescription] = useState("");
 
   const[completedItem,setCompletedItem] = useState([]);
@@ -121,7 +121,7 @@ function App() {
                 <div className="card-body d-flex flex-row justify-content-between align-items-center">
                   <div className="col-4 item d-flex flex-column">
                     <label className='mb-1 fw-bold' for="title">Title</label>
-                    <input type="text" value={itemTitle} onChange={(e) => SetItemTitle(e.target.value)} id="title" placeholder="What is new title ???"></input>
+                    <input type="text" value={itemTitle} onChange={(e) => setItemTitle(e.target.value)} id="title" placeholder="What is new title ???"></input>
                   </div>
                   <div className="col-4 item d-flex flex-column">
                     <label className='mb-1 fw-bold' for="description">Description</label>
