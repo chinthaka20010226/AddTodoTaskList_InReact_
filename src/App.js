@@ -14,6 +14,7 @@ function App() {
 
   const handelDeleteTodo = (index) => {
     let saveTodo = [...allItems];
+    // saveTodo.slice(index);
     if(saveTodo){
       saveTodo.slice(index);
     }
@@ -43,11 +44,13 @@ function App() {
     // localStorage.setItem('todoList',updatedItemArr);
 
     // Store in Local Storage as Array,
+    // passing Array to String -> not Object,
     localStorage.setItem('todoList',JSON.stringify(updatedItemArr));
   }
 
 
   useEffect(() => {
+    // passing String in local storage to Array,
     let saveTodo = JSON.parse(localStorage.getItem('todoList'));
 
     if(saveTodo){
