@@ -31,9 +31,10 @@ function App() {
       description: itemDescription
     };
 
-    // cody previous Items Array
+    // copy previous Items Array
     let updatedItemArr = [...allItems];
 
+    // update Array
     updatedItemArr.push(item);
 
     setAllItems(updatedItemArr);
@@ -47,7 +48,7 @@ function App() {
 
 
   useEffect(() => {
-    let saveTodo = JSON.parse(localStorage.getItem('todeList'));
+    let saveTodo = JSON.parse(localStorage.getItem('todoList'));
 
     if(saveTodo){
       setAllItems(saveTodo);
