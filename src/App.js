@@ -12,6 +12,35 @@ function App() {
   const[itemTitle,SetItemTitle] = useState("");
   const[itemDescription,setItemDescription] = useState("");
 
+  const[completedItem,setCompletedItem] = useState([]);
+
+  const handelCompleteTodo = (index) => {
+    let now = new Date();
+    let dd = now.getDate();
+    let mm = now.getMonth();
+    let yyy = now.getFullYear();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    let completedOn = dd + '-' + mm + '-' + yyy + ' at ' + h + ':' + m + ':' + s;
+
+    let filterItem = {
+      ...allItems[index],
+      completedOn: completedOn
+    };
+
+    let updateCompletedArr = [...completedItem];
+
+    updateCompletedArr.push(filterItem);
+
+    setCompletedItem(updateCompletedArr);
+
+    localStorage.setItem('completedTodoList',JSON.stringify(updateCompletedArr));
+
+    handelDeleteTodo(index);
+  }
+
   const handelDeleteTodo = (index) => {
     let saveTodo = [...allItems];
 
@@ -58,6 +87,12 @@ function App() {
     if(saveTodo){
       setAllItems(saveTodo);
     }
+
+    let saveCompletedTodo = JSON.parse(localStorage.getItem('completedTodoList'));
+
+    if(saveCompletedTodo){
+      setCompletedItem(saveCompletedTodo);
+    }
   },[]);
 
 
@@ -99,7 +134,7 @@ function App() {
                   </div>
                   <div className="add-section d-flex flex-column">
                     {
-                      allItems.map((item,index) => {
+                      isCompleted === false && allItems.map((item,index) => {
                         return(
                           <div className='add-item d-flex flex-row mb-2' key={index}>
                             <div className='item-text d-flex flex-column h-100'>
@@ -107,8 +142,26 @@ function App() {
                               <p>{item.description}</p> 
                             </div>                                                                                     
                             <div className='item-icon d-flex flex-row h-100'>
+                              <AiOutlineDelete className='delete' onClick={() => handelDeleteTodo(index)} title='delete ???' />
+                              <FaCheck className='check' onClick={() => handelCompleteTodo(index)} title='check ???' />
+                            </div>                                                                                     
+                          </div>
+                        );
+                      })
+                    }
+
+                    {
+                      isCompleted === true && completedItem.map((item,index) => {
+                        return(
+                          <div className='add-item d-flex flex-row mb-2' key={index}>
+                            <div className='item-text d-flex flex-column h-100'>
+                              <h2>{item.title}</h2>
+                              <p>{item.description}</p> 
+                              <p><small>Completed On : {item.completedOn}</small></p> 
+                            </div>                                                                                     
+                            <div className='item-icon d-flex flex-row h-100'>
                               <AiOutlineDelete className='delete' onClick={() => handelDeleteTodo(index)}/>
-                              <FaCheck className='check' />
+                              {/* <FaCheck className='check' onClick={() => handelCompleteTodo(index)} /> */}
                             </div>                                                                                     
                           </div>
                         );
