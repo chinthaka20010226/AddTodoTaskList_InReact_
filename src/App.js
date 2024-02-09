@@ -77,7 +77,8 @@ function App() {
     // copy previous Items Array
     let updatedItemArr = [...allItems];
 
-    // update Array
+    if(item.title !== '' & itemDescription !== ''){
+          // update Array
     updatedItemArr.push(item);
 
     setAllItems(updatedItemArr);
@@ -88,6 +89,7 @@ function App() {
     // Store in Local Storage as Array,
     // passing Array to String -> not Object,
     localStorage.setItem('todoList',JSON.stringify(updatedItemArr));
+    }
   }
 
 
