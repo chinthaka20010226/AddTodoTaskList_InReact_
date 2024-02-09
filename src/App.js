@@ -14,6 +14,18 @@ function App() {
 
   const[completedItem,setCompletedItem] = useState([]);
 
+  let handelCompletedDeleteTodo = (index) => {
+    let saveCompletedTodo = [...completedItem];
+
+    if(saveCompletedTodo){
+      saveCompletedTodo.splice(index,1);
+    }
+
+    localStorage.setItem('completedTodoList',JSON.stringify(saveCompletedTodo));
+
+    setCompletedItem(saveCompletedTodo);
+  }
+
   const handelCompleteTodo = (index) => {
     let now = new Date();
     let dd = now.getDate();
@@ -160,7 +172,7 @@ function App() {
                               <p><small>Completed On : {item.completedOn}</small></p> 
                             </div>                                                                                     
                             <div className='item-icon d-flex flex-row h-100'>
-                              <AiOutlineDelete className='delete' onClick={() => handelDeleteTodo(index)}/>
+                              <AiOutlineDelete className='delete' onClick={() => handelCompletedDeleteTodo(index)}/>
                               {/* <FaCheck className='check' onClick={() => handelCompleteTodo(index)} /> */}
                             </div>                                                                                     
                           </div>
