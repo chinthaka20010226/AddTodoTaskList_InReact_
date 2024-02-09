@@ -14,9 +14,10 @@ function App() {
 
   const handelDeleteTodo = (index) => {
     let saveTodo = [...allItems];
-    // saveTodo.slice(index);
+
+    // saveTodo.splice(index,1);
     if(saveTodo){
-      saveTodo.slice(index);
+      saveTodo.splice(index,1);
     }
 
     // save in Local Storeage
@@ -53,6 +54,7 @@ function App() {
     // passing String in local storage to Array,
     let saveTodo = JSON.parse(localStorage.getItem('todoList'));
 
+    // check Empty
     if(saveTodo){
       setAllItems(saveTodo);
     }
